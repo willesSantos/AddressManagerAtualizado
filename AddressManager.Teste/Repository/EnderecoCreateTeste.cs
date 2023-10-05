@@ -1,29 +1,14 @@
-﻿using AddressManager.Domain.Models.Context;
-using AddressManager.Domain.Models;
+﻿using AddressManager.Domain.Models;
+using AddressManager.Domain.Models.Context;
 using AddressManager.Infra.Data.Respositories;
+using AddressManager.Teste.DataBaseInMemory;
 using Microsoft.Extensions.DependencyInjection;
-using AddressManagerTeste.DataBaseInMemory;
 using Xunit;
 
-namespace AddressManagerTeste.Repository
+namespace AddressManager.Teste.Repository
 {
-    public class EnderecoUpdateTeste
+    public class EnderecoCreateTeste
     {
-        public Endereco endereco = new Endereco
-        {
-            id = 3,
-            cep = "04960110",
-            Logradouro = "Nova Rua barao",
-            Complemento = "teste",
-            Bairro = "Jardim Capela",
-            Localidade = "teste",
-            Uf = "SP",
-            Ibge = "2",
-            Gia = "2",
-            Ddd = "11",
-            Siafi = "2"
-        };
-
         public Endereco enderecoExistente = new Endereco
         {
             id = 1,
@@ -39,12 +24,26 @@ namespace AddressManagerTeste.Repository
             Siafi = "2"
         };
 
+        public Endereco EnderecoNovo = new Endereco
+        {
+            cep = "04960110",
+            Logradouro = "Nova Rua barao",
+            Complemento = "teste",
+            Bairro = "Jardim Capela",
+            Localidade = "teste",
+            Uf = "SP",
+            Ibge = "2",
+            Gia = "2",
+            Ddd = "11",
+            Siafi = "2"
+        };
+
         [Fact]
-        public async Task RetornarEnderecoAtualizado()
+        public async Task RetornarExceptionEnderecoJaExistente()
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -52,19 +51,17 @@ namespace AddressManagerTeste.Repository
                     var dbContext = provider.GetRequiredService<SqlContext>();
                     var repository = new EnderecoRepository(dbContext);
 
-                    var enderecos = await repository.Update(enderecoExistente);
-
-                    Assert.Equal(enderecoExistente, enderecos);
+                    Assert.ThrowsAsync<Exception>(() => repository.Create(enderecoExistente));
                 }
             }
         }
 
         [Fact]
-        public async Task RetornarExceptionEnderecoNaoEncontrado()
+        public async Task RetornarEnderecoCreateSucesso()
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -72,7 +69,9 @@ namespace AddressManagerTeste.Repository
                     var dbContext = provider.GetRequiredService<SqlContext>();
                     var repository = new EnderecoRepository(dbContext);
 
-                    Assert.ThrowsAsync<Exception>(() => repository.Update(endereco));
+                    var enderecos = await repository.Create(EnderecoNovo);
+
+                    Assert.Equal(EnderecoNovo, enderecos);
                 }
             }
         }

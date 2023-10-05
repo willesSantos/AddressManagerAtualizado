@@ -1,5 +1,4 @@
 ﻿using AddressManager.Domain.Models.Context;
-using AddressManager.Infra.Data.Context;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -7,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
-namespace AddressManagerTeste.DataBaseInMemory
+namespace AddressManager.Teste.DataBaseInMemory
 {
     public class AddressInMomery : WebApplicationFactory<Program>
     {

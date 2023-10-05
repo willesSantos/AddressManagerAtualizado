@@ -2,9 +2,9 @@
 using AddressManager.Domain.Models.Context;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AddressManagerTeste.DataBaseInMemory
+namespace AddressManager.Teste.DataBaseInMemory
 {
-    public class AdressMockData
+    public class AdressMockData1
     {
         public static async Task CreateCategories(AddressInMomery application, bool criar)
         {

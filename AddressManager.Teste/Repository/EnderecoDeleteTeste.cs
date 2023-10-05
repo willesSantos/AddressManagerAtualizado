@@ -1,11 +1,11 @@
 using AddressManager.Domain.Models;
 using AddressManager.Domain.Models.Context;
 using AddressManager.Infra.Data.Respositories;
-using AddressManagerTeste.DataBaseInMemory;
+using AddressManager.Teste.DataBaseInMemory;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace AddressManagerTeste.Repository
+namespace AddressManager.Teste.Repository
 {
     public class EnderecoDeleteTeste
     {
@@ -43,7 +43,7 @@ namespace AddressManagerTeste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -63,7 +63,7 @@ namespace AddressManagerTeste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {

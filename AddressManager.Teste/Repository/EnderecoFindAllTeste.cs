@@ -1,21 +1,20 @@
+﻿using AddressManager.Domain.Models.Context;
 using AddressManager.Domain.Models;
-using AddressManager.Domain.Models.Context;
 using AddressManager.Infra.Data.Respositories;
-using AddressManagerTeste.DataBaseInMemory;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
+using Microsoft.Extensions.DependencyInjection;
+using AddressManager.Teste.DataBaseInMemory;
 
-namespace AddressManagerTeste.Repository
+namespace AddressManager.Teste.Repository
 {
     public class EnderecoFindAllTeste
     {
-
         [Fact]
         public async Task RetornarTipoListaDeEnderecos()
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -36,7 +35,7 @@ namespace AddressManagerTeste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -56,7 +55,7 @@ namespace AddressManagerTeste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -76,7 +75,7 @@ namespace AddressManagerTeste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData.CreateCategories(application, true);
+                AdressMockData1.CreateCategories(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {

@@ -1,13 +1,18 @@
-using AddressManager.Domain.Models;
+﻿using AddressManager.Domain.Models;
 using AddressManager.Infra.Data.Respositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
-namespace AddressManagerTeste.Repository
+namespace AddressManager.Teste.Repository
 {
     public class EnderecoBuscaViaCepTeste
     {
         [Fact]
-        public async Task RetornarNuloQuandoN�oExistirCep()
+        public async Task RetornarNuloQuandoNãoExistirCep()
         {
             var repository = new ObterEnderecoPorCepRepository();
 
