@@ -1,14 +1,6 @@
 ﻿using AddressManager.Domain.Models;
 using AddressManager.Domain.Models.Context;
-using AddressManager.Infra.Data.Context;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AddressManagerTeste.DataBaseInMemory
 {
