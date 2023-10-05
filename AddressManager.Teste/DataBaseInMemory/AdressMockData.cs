@@ -6,7 +6,7 @@ namespace AddressManager.Teste.DataBaseInMemory
 {
     public class AdressMockData1
     {
-        public static async Task CreateCategories(AddressInMomery application, bool criar)
+        public static async Task CreateEnderecos(AddressInMomery application, bool criar)
         {
             try
             {

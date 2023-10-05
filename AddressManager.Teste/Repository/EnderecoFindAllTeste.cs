@@ -14,7 +14,7 @@ namespace AddressManager.Teste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData1.CreateCategories(application, true);
+                AdressMockData1.CreateEnderecos(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -35,7 +35,7 @@ namespace AddressManager.Teste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData1.CreateCategories(application, true);
+                AdressMockData1.CreateEnderecos(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -55,7 +55,7 @@ namespace AddressManager.Teste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData1.CreateCategories(application, true);
+                AdressMockData1.CreateEnderecos(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
@@ -75,7 +75,7 @@ namespace AddressManager.Teste.Repository
         {
             using (var application = new AddressInMomery())
             {
-                AdressMockData1.CreateCategories(application, true);
+                AdressMockData1.CreateEnderecos(application, true);
 
                 using (var scope = application.Services.CreateScope())
                 {
